@@ -68,6 +68,14 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+          <SignedOut>
+            <Link href="/sign-up">
+              <Button variant="secondary" className="gap-2">
+                <UserCircle className="h-4 w-4" />
+                Sign Up
+              </Button>
+            </Link>
+          </SignedOut>
         </div>
 
         <div className="flex items-center gap-4">
@@ -83,15 +91,6 @@ export function Navbar() {
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
-
-          <SignedOut>
-            <Link href="/sign-up">
-              <Button variant="secondary" className="gap-2">
-                <UserCircle className="h-4 w-4" />
-                Sign Up
-              </Button>
-            </Link>
-          </SignedOut>
 
           <Link href="/cart">
             <Button
