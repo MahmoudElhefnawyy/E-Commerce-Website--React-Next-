@@ -1,5 +1,6 @@
 import { Switch, Route } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { ClerkProvider } from "@clerk/clerk-react";
 import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/contexts/CartContext";
@@ -12,7 +13,12 @@ import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import SignUp from "@/pages/SignUp";
 import NotFound from "@/pages/not-found";
+
+if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
+  throw new Error("Missing Clerk Publishable Key");
+}
 
 function Router() {
   return (
@@ -27,6 +33,7 @@ function Router() {
           <Route path="/checkout" component={Checkout} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/sign-up" component={SignUp} />
           <Route component={NotFound} />
         </Switch>
       </main>
@@ -37,12 +44,14 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <CartProvider>
-        <Router />
-        <Toaster />
-      </CartProvider>
-    </QueryClientProvider>
+    <ClerkProvider publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}>
+      <QueryClientProvider client={queryClient}>
+        <CartProvider>
+          <Router />
+          <Toaster />
+        </CartProvider>
+      </QueryClientProvider>
+    </ClerkProvider>
   );
 }
 

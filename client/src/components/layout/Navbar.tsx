@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
-import { ShoppingCart, Menu, Search } from "lucide-react";
+import { ShoppingCart, Menu, Search, UserCircle } from "lucide-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/contexts/CartContext";
@@ -57,9 +58,9 @@ export function Navbar() {
                   className={cn(
                     "relative py-1 text-sm transition-colors",
                     location === link.href
-                      ? "text-primary font-medium"
-                      : "text-muted-foreground hover:text-primary",
-                    "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:after:scale-x-100"
+                      ? "text-white font-medium"
+                      : "text-muted-foreground hover:text-white",
+                    "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform hover:after:scale-x-100"
                   )}
                 >
                   {link.label}
@@ -78,6 +79,20 @@ export function Navbar() {
             />
             <Search className="absolute right-2 top-2.5 h-4 w-4 text-muted-foreground" />
           </div>
+
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+
+          <SignedOut>
+            <Link href="/sign-up">
+              <Button variant="secondary" className="gap-2">
+                <UserCircle className="h-4 w-4" />
+                Sign Up
+              </Button>
+            </Link>
+          </SignedOut>
+
           <Link href="/cart">
             <Button
               variant="ghost"
