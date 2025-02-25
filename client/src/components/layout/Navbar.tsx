@@ -84,15 +84,6 @@ export function Navbar() {
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
 
-          <SignedOut>
-            <Link href="/sign-up">
-              <Button variant="secondary" className="gap-2">
-                <UserCircle className="h-4 w-4" />
-                Sign Up
-              </Button>
-            </Link>
-          </SignedOut>
-
           <Link href="/cart">
             <Button
               variant="ghost"
@@ -107,6 +98,15 @@ export function Navbar() {
               )}
             </Button>
           </Link>
+
+          <SignedOut>
+            <Link href="/sign-up">
+              <Button variant="secondary" className="gap-2">
+                <UserCircle className="h-4 w-4" />
+                Sign Up
+              </Button>
+            </Link>
+          </SignedOut>
         </div>
       </div>
     </nav>
