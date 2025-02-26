@@ -1,7 +1,7 @@
 
-# ShopSmart E-Commerce Platform
+# Shopey E-Commerce Platform 
 
-A modern e-commerce platform built with React, TypeScript, and Tailwind CSS.
+A modern e-commerce platform built with React , Next , TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -87,6 +87,3 @@ CLERK_PUBLISHABLE_KEY=your_clerk_key
 4. Push to branch (`git push origin feature/my-feature`)
 5. Create Pull Request
 
-## License
-
-MIT License - See [LICENSE](LICENSE) for details.
