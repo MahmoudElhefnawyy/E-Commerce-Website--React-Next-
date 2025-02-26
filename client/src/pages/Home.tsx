@@ -6,7 +6,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Button } from "@/components/ui/button";
 import { getProducts, type Product } from "@/lib/api";
 
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -40,7 +40,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Slider */}
       <section className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold">Featured Products</h2>
@@ -112,8 +111,7 @@ export default function Home() {
           </Swiper>
         )}
       </section>
-
-      {/* Categories Section */}
+      
       <section className="container mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8">Shop by Category</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
